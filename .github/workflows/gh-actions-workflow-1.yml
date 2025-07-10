@@ -9,10 +9,13 @@ jobs:
   Example-Actions-Job:
     name: Exploring GitHub Actions
     runs-on: ubuntu-latest
+    env:
+      GLOBAL_VERSION: "v1"
     steps:
+      - run: echo "Global Version: ${{ env.GLOBAL_VERSION }}"
       - run: echo "My test env value is ${{ env.TEST_VALUE }}"
         env:
-          TEST_VALUE: "TestValue1212586"
+          GLOBAL_VERSION: "v212586"
       # Display the event that triggered the workflow
       - run: echo "Payload field is ${{ github.event.client_payload.mydata }}"
 
