@@ -12,7 +12,7 @@ jobs:
     env:
       GLOBAL_VERSION: "v1"
     steps:
-      - run: echo "my_output=\"user:someuser\""
+      - run: echo "Slash and space test:\ hello"
       - run: echo 'Global Version ${{ env.GLOBAL_VERSION }}'
       - run: echo "My test env value is ${{ env.GLOBAL_VERSION }}"
         env:
