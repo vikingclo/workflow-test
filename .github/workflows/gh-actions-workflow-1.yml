@@ -1,5 +1,8 @@
 name: GitHub Actions Demo
 on:
+  push:
+    branches:
+      - main
   repository_dispatch:
     types: [run_my_workflow]
 jobs:
@@ -9,22 +12,10 @@ jobs:
     steps:
       # Display the event that triggered the workflow
       - run: echo "Payload field is ${{ github.event.client_payload.mydata }}"
-      
-      # Runner information
-      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub"
-      
-      # Information about the repository and branch
-      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      
+
       # Use Action located in https://github.com/actions
       - name: Check out repository code
         uses: actions/checkout@v2  
-      
-      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-      
-      - run: echo "Your repository has been copied to the path ${{ github.workspace }} on the runner."
-      
-      - run: echo "The workflow is now ready to test your code on the runner."
       
       - name: conditional step when event name is pull request
         if: ${{ github.event_name == 'pull_request' }}
