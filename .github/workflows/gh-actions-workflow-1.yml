@@ -12,7 +12,7 @@ jobs:
     env:
       GLOBAL_VERSION: "v1"
     steps:
-      - run: echo 'Global Version: ${{ env.GLOBAL_VERSION }}'
+      - run: echo 'Global Version\: ${{ env.GLOBAL_VERSION }}'
       - run: echo "My test env value is ${{ env.TEST_VALUE }}"
         env:
           GLOBAL_VERSION: "v212586"
