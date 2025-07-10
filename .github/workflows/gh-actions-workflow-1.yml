@@ -13,7 +13,7 @@ jobs:
       GLOBAL_VERSION: "v1"
     steps:
       - run: echo 'Global Version ${{ env.GLOBAL_VERSION }}'
-      - run: echo "My test env value is ${{ env.TEST_VALUE }}"
+      - run: echo "My test env value is ${{ env.GLOBAL_VERSION }}"
         env:
           GLOBAL_VERSION: "v212586"
       # Display the event that triggered the workflow
