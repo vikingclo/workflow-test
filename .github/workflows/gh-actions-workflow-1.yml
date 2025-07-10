@@ -1,12 +1,14 @@
 name: GitHub Actions Demo
-on: push
+on:
+  repository_dispatch:
+    types: [run_my_workflow]
 jobs:
   Example-Actions-Job:
     name: Exploring GitHub Actions
     runs-on: ubuntu-latest
     steps:
       # Display the event that triggered the workflow
-      - run: echo "The job was triggered by a ${{ github.event_name }} event."
+      - run: echo "Payload field is ${{ github.event.client_payload.mydata }}"
       
       # Runner information
       - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub"
